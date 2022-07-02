@@ -52,3 +52,4 @@ tzdata==2022.1
 uritemplate==4.1.1
 urllib3==1.26.9
 virtualenv==20.15.0
+whitenoise
