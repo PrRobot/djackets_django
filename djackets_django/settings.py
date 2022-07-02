@@ -46,13 +46,13 @@ INSTALLED_APPS = [
 
     'product',
     'order',
-    'whitenoise',
     
 ]
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -63,8 +63,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
+MIDDLEWARE_CLASSES = (
+    # Simplified static file serving.
+    # https://warehouse.python.org/project/whitenoise/
+    'whitenoise.middleware.WhiteNoiseMiddleware', ) 
+
+    
 
 ROOT_URLCONF = 'djackets_django.urls'
 
@@ -86,7 +92,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'djackets_django.wsgi.application'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
