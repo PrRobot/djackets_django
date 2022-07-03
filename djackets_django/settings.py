@@ -70,7 +70,7 @@ MIDDLEWARE_CLASSES = (
     # https://warehouse.python.org/project/whitenoise/
     'whitenoise.middleware.WhiteNoiseMiddleware', ) 
 
-    
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
 ROOT_URLCONF = 'djackets_django.urls'
 
