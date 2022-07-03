@@ -158,4 +158,8 @@ from djackets_django import MyWSGIApp
 
 application = MyWSGIApp()
 application = WhiteNoise(application, root="/path/to/static/files")
-application.add_files("/path/to/more/static/files", prefix="more-files/")   
+application.add_files("/path/to/more/static/files", prefix="more-files/")    
+
+from django.core.management.utils import get_random_secret_key
+
+print(get_random_secret_key())
