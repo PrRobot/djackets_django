@@ -142,4 +142,20 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media/'
+MEDIA_ROOT = BASE_DIR / 'media/' 
+
+MIDDLEWARE = [
+    # ...
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    # ...
+]
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+from whitenoise import WhiteNoise
+
+from djackets_django import MyWSGIApp
+
+application = MyWSGIApp()
+application = WhiteNoise(application, root="/path/to/static/files")
+application.add_files("/path/to/more/static/files", prefix="more-files/")   
